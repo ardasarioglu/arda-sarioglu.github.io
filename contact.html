@@ -1,41 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <title>İletişim</title>
+    <meta charset="UTF-8">
+    <title>İletişim - Arda Sarıoğlu</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
-    <h1>İletişim</h1>
-    <p>Benimle iletişime geçebileceğiniz bilgiler</p>
+    <h1>Arda Sarıoğlu</h1>
+    <p>Bilgisayar Mühendisliği | Teknoloji Fakültesi</p>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Ana Sayfa</a></li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="interests.html">İlgi Alanlarım</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+        </ul>
+    </nav>
 
-    <ul>
-        <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="about.html">Hakkımda</a></li>
-        <li><a href="interests.html">İlgi Alanlarım</a></li>
-        <li><a href="contact.html">İletişim</a></li>
-    </ul>
+    <main>
+        <h2>İletişim Bilgilerim</h2>
+        <ul>
+            <li>E-posta: <a href="mailto:ardasarioglu@marun.edu.tr">ardasarioglu@marun.edu.tr</a></li>
+            <li>GitHub: <a href="https://github.com/ardasarioglu/">ardasarioglu</a></li>
+        </ul>
 
-    <h2>İletişim Bilgilerim</h2>
-    <ul>
-        <li>E-posta: <a href="ardasarioglu@marun.edu.tr">ardasarioglu@marun.edu.tr</a></li>
-        <li>Telefon: <a href="tel:+905538780348">+90 553 878 03 48</a></li>
-        <li>GitHub: <a href="https://github.com/ardasarioglu/">ardasarioglu</a></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/arda-sar%C4%B1o%C4%9Flu-461417277/">LinkedIn Profilim</a></li>
-    </ul>
+        <div class="contact-container">
+            <h2>Detaylı İletişim Formu</h2>
+            <form action="#">
+                <label for="name">Ad Soyad:</label>
+                <input type="text" id="name" name="name" placeholder="Örn: Asaf Karataş" required>
 
-    <h2>Sık Sorulan Sorular</h2>
+                <label for="email">E-posta Adresi:</label>
+                <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
 
-    <h3>Mesajlara ne kadar sürede dönüş yapıyorsunuz?</h3>
-    <p>Genellikle 24 saat içinde e-posta yoluyla dönüş yapıyorum.</p>
+                <label for="password">Başvuru Takip Şifresi:</label>
+                <input type="password" id="password" name="password" placeholder="Şifrenizi girin">
 
-    <h3>Projelerde iş birliğine açık mısınız?</h3>
-    <p>Evet, özellikle eğitim ve açık kaynak projelerinde iş birliklerine açığım.</p>
+                <label>İletişim Tercihi:</label>
+                <div class="form-group">
+                    <input type="radio" id="mail-pref" name="pref" value="mail">
+                    <label for="mail-pref" style="display:inline; font-weight:normal;">Bana e-posta ile ulaşın</label><br>
+                    <input type="radio" id="tel-pref" name="pref" value="tel">
+                    <label for="tel-pref" style="display:inline; font-weight:normal;">Bana telefonla ulaşın</label>
+                </div>
 
-    <br>
-    <a href="index.html">← Ana sayfaya geri dön</a>
+                <label>İlgi Alanları / Yetenekler:</label>
+                <div class="form-group">
+                    <input type="checkbox" id="html" name="skill" value="html">
+                    <label for="html" style="display:inline; font-weight:normal;">HTML</label><br>
+                    <input type="checkbox" id="css" name="skill" value="css">
+                    <label for="css" style="display:inline; font-weight:normal;">CSS</label><br>
+                    <input type="checkbox" id="algo" name="skill" value="algo">
+                    <label for="algo" style="display:inline; font-weight:normal;">Algoritma</label>
+                </div>
 
-    <hr>
-    <p>© 2026 Web Programlama Dersi</p>
+                <label for="subject">Konu:</label>
+                <select id="subject" name="subject">
+                    <option value="">Lütfen bir konu seçin...</option>
+                    <option value="is">İş Teklifi</option>
+                    <option value="soru">Soru</option>
+                    <option value="geribildirim">Geri Bildirim</option>
+                </select>
+
+                <label for="file">Özgeçmiş (CV) veya Fotoğraf Yükle:</label>
+                <input type="file" id="file" name="file">
+
+                <label for="message">Mesajınız:</label>
+                <textarea id="message" name="message" rows="5" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+
+                <div class="button-row">
+                    <button type="submit" class="btn-submit">Gönder</button>
+                    <button type="reset" class="btn-reset">Temizle</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Arda Sarıoğlu | Web Programlama Dersi</p>
+    </footer>
 
 </body>
 </html>
