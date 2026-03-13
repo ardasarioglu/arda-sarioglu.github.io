@@ -1,5 +1,5 @@
-/* Grup Seçici (Ödev Gereksinimi 9) */
-body, h1, p, ul {
+/* 1. Grup Seçici ve Temel Sıfırlama (Ödev Gereksinimi 9 & 22) [cite: 5, 22] */
+body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,7 +8,7 @@ body, h1, p, ul {
 body {
     background-color: #f0f2f5;
     color: #333;
-    line-height: 1.6; /* Metin Düzenleme 1 */
+    line-height: 1.6;
 }
 
 /* Navigasyon Alanı */
@@ -18,139 +18,127 @@ nav {
     padding: 15px 0;
 }
 
-.nav-container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+nav ul {
+    list-style: none;
+    text-align: center;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Hiyerarşik Seçici 1 (Ödev Gereksinimi 9) */
 nav ul li {
-    display: inline-block; /* Ödev Gereksinimi 3 */
-    margin-left: 20px;
+    display: inline-block;
+    margin: 0 15px;
 }
 
-/* Hiyerarşik Seçici 2 (Ödev Gereksinimi 9) */
 nav ul li a {
     text-decoration: none;
     color: #555;
-    padding: 8px 15px;
-    transition: 0.3s; /* Hover için yumuşak geçiş */
-}
-
-/* Hover Efekti (Ödev Gereksinimi 4) */
-nav ul li a:hover {
-    color: #8899cc;
-}
-
-nav ul li a.active {
-    background-color: #8899cc;
-    color: white;
-    border-radius: 4px;
-}
-
-/* Header Alanı */
-header {
-    width: 80%;
-    margin: 30px auto;
-    text-align: left; /* Metin Düzenleme 2 */
-}
-
-header h1 {
-    display: none; /* Görselde başlık zaten nav içinde, gerekirse açılabilir */
-}
-
-/* Ana İçerik Düzeni (İki Sütun) */
-.container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex; /* Sütunları yan yana getirmek için (Ödev Gereksinimi 6) */
-    gap: 20px;
-}
-
-.content, .sidebar {
-    flex: 1; /* Eşit genişlik için */
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-/* Kutu Başlıkları */
-.box-header {
-    padding: 15px;
     font-weight: bold;
-    font-size: 20px; /* Metin Düzenleme 3 */
+    transition: 0.3s;
 }
 
-.orange-header { background-color: #fdf2d5; border-bottom: 1px solid #f9e2a8; }
-.blue-header { background-color: #e3eff6; border-bottom: 1px solid #c8dceb; }
-
-/* Kutu İçerikleri */
-.box-body {
-    padding: 20px;
-    height: 250px; /* Belirli bir yükseklik (Ödev Gereksinimi 1) */
+nav ul li a:hover {
+    color: #007bff;
 }
 
-.orange-body { background-color: #fef9eb; }
-.blue-body { background-color: #f0f7fb; }
+/* 2. İletişim Formu Konteynerı (Box Model Gereksinimleri) [cite: 13, 14, 15, 16] */
+.contact-container {
+    width: 600px; /* Gereksinim: 600px genişlik [cite: 14] */
+    margin: 40px auto; /* Gereksinim: Sayfayı ortalama [cite: 14] */
+    padding: 30px; /* Gereksinim: Geniş iç boşluk [cite: 15] */
+    background-color: #ffffff;
+    border: 1px solid #ddd; /* Gereksinim: Belirgin kenarlık [cite: 16] */
+    border-radius: 12px; /* Gereksinim: Hafif köşe yuvarlaması [cite: 16] */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-/* Footer */
+.contact-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+/* 3. Form Elemanları Tasarımı (Çoklu Seçici Kullanımı) [cite: 17, 18, 19, 20, 22] */
+.contact-container label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Gereksinim: input, select ve textarea'yı tek seferde seçme [cite: 17, 22] */
+.contact-container input[type="text"],
+.contact-container input[type="email"],
+.contact-container input[type="password"],
+.contact-container select,
+.contact-container textarea {
+    width: 100%; /* Gereksinim: Alanın tamamını kapla [cite: 18] */
+    padding: 12px; /* Gereksinim: Yazı yazıldığında ferah durması için [cite: 19] */
+    margin-bottom: 20px; /* Gereksinim: Elemanlar arası boşluk [cite: 20] */
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
+    font-size: 14px;
+}
+
+/* 4. Radyo ve Checkbox Özel Alanları (Görseldeki Gri Kutular) */
+.form-group {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: inline;
+    font-weight: normal;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+/* 5. Buton Tasarımları  */
+.button-row {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-submit {
+    flex: 1;
+    background-color: #007bff; /* Görseldeki mavi buton  */
+    color: white;
+    border: none;
+    padding: 12px 0; /* Gereksinim: Alt-üst padding ile büyütme  */
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+
+.btn-reset {
+    flex: 1;
+    background-color: #dc3545; /* Görseldeki kırmızı buton */
+    color: white;
+    border: none;
+    padding: 12px 0;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+.btn-reset:hover {
+    background-color: #a71d2a;
+}
+
+/* Alt Bilgi */
 footer {
     text-align: center;
     padding: 20px;
     margin-top: 40px;
-    border-top: 1px solid #ddd;
     color: #777;
-
-}
-/* Konteynır Düzeni */
-.contact-container {
-    width: 600px; /* Ödevde belirtilen uygun genişlik */
-    margin: 40px auto; /* Sayfayı ortalar ve üstten boşluk bırakır */
-    padding: 25px; /* İç boşluk: elemanların kenarlara yapışmasını önler */
-    border: 1px solid #ddd; /* Belirgin bir kenarlık */
-    border-radius: 10px; /* Hafif köşe yuvarlaması */
-    background-color: #ffffff;
-}
-
-/* Form Elemanlarının Genel Stili (Çoklu Seçici Kullanımı) */
-.contact-container input, 
-.contact-container select, 
-.contact-container textarea {
-    width: 100%; /* Alanın tamamını kaplar */
-    padding: 10px; /* İçerideki yazının ferah durması için */
-    margin-bottom: 15px; /* Alt elemanla arasına boşluk koyar */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
-}
-
-/* Etiketlerin (Label) Alt Alta Durması İçin */
-.contact-container label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-/* Gönder Butonu Stili */
-.contact-container button[type="submit"] {
-    background-color: #007bff; /* Mavi arka plan */
-    color: white;
-    border: none; /* Kenarlığı kaldırır */
-    padding: 12px 25px; /* Butonu büyütmek için iç boşluk */
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-.contact-container button[type="submit"]:hover {
-    background-color: #0056b3;
+    border-top: 1px solid #ddd;
 }
