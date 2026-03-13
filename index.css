@@ -108,4 +108,49 @@ footer {
     margin-top: 40px;
     border-top: 1px solid #ddd;
     color: #777;
+
+}
+/* Konteynır Düzeni */
+.contact-container {
+    width: 600px; /* Ödevde belirtilen uygun genişlik */
+    margin: 40px auto; /* Sayfayı ortalar ve üstten boşluk bırakır */
+    padding: 25px; /* İç boşluk: elemanların kenarlara yapışmasını önler */
+    border: 1px solid #ddd; /* Belirgin bir kenarlık */
+    border-radius: 10px; /* Hafif köşe yuvarlaması */
+    background-color: #ffffff;
+}
+
+/* Form Elemanlarının Genel Stili (Çoklu Seçici Kullanımı) */
+.contact-container input, 
+.contact-container select, 
+.contact-container textarea {
+    width: 100%; /* Alanın tamamını kaplar */
+    padding: 10px; /* İçerideki yazının ferah durması için */
+    margin-bottom: 15px; /* Alt elemanla arasına boşluk koyar */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
+}
+
+/* Etiketlerin (Label) Alt Alta Durması İçin */
+.contact-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Gönder Butonu Stili */
+.contact-container button[type="submit"] {
+    background-color: #007bff; /* Mavi arka plan */
+    color: white;
+    border: none; /* Kenarlığı kaldırır */
+    padding: 12px 25px; /* Butonu büyütmek için iç boşluk */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.contact-container button[type="submit"]:hover {
+    background-color: #0056b3;
 }
