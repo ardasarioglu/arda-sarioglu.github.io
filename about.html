@@ -38,7 +38,29 @@
                 </ol>
             </nav>
           <a href="index.html">Ana sayfaya geri dönün</a>
-            
+        <div class="contact-container">
+    <h2>Detaylı İletişim Formu</h2>
+    <form action="#">
+        <label for="name">Ad Soyad:</label>
+        <input type="text" id="name" name="name" placeholder="Örn: Arda Sarıoğlu" required>
+
+        <label for="email">E-posta Adresi:</label>
+        <input type="email" id="email" name="email" placeholder="ornek@mail.com" required>
+
+        <label for="subject">Konu:</label>
+        <select id="subject" name="subject">
+            <option value="">Lütfen bir konu seçin...</option>
+            <option value="is-teklifi">İş Teklifi</option>
+            <option value="soru">Soru</option>
+            <option value="geri-bildirim">Geri Bildirim</option>
+        </select>
+
+        <label for="message">Mesajınız:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Detaylı mesajınızı buraya yazabilirsiniz..."></textarea>
+
+        <button type="submit">Gönder</button>
+    </form>
+</div> 
         </main>
         <footer>
            <p>2026 Arda Sarıoğlu | Web Programlama Dersi</p> 
