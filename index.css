@@ -1,144 +1,98 @@
-/* 1. Grup Seçici ve Temel Sıfırlama (Ödev Gereksinimi 9 & 22) [cite: 5, 22] */
-body, h1, h2, p, ul, li {
+/* --- Flexbox Ödevi Özel Alanı --- */
+
+/* 1. Genel Zorunlu Şartlar */
+.wrapper {
+    display: flex; /* [cite: 11] */
+    flex-direction: column; /*  */
+    height: 100vh; /* [cite: 9, 46, 52] */
+    width: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
-body {
-    background-color: #f0f2f5;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Navigasyon Alanı */
-nav {
+/* 2. Navbar - Üst Menü (10vh) */
+.navbar {
+    height: 10vh; /* [cite: 15, 52] */
+    display: flex; /* [cite: 16, 47] */
+    justify-content: space-between; /* [cite: 17, 48] */
+    align-items: center; /* [cite: 18, 49] */
+    padding: 0 5%;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    padding: 15px 0;
 }
 
-nav ul {
-    list-style: none;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #555;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-nav ul li a:hover {
-    color: #007bff;
-}
-
-/* 2. İletişim Formu Konteynerı (Box Model Gereksinimleri) [cite: 13, 14, 15, 16] */
-.contact-container {
-    width: 600px; /* Gereksinim: 600px genişlik [cite: 14] */
-    margin: 40px auto; /* Gereksinim: Sayfayı ortalama [cite: 14] */
-    padding: 30px; /* Gereksinim: Geniş iç boşluk [cite: 15] */
-    background-color: #ffffff;
-    border: 1px solid #ddd; /* Gereksinim: Belirgin kenarlık [cite: 16] */
-    border-radius: 12px; /* Gereksinim: Hafif köşe yuvarlaması [cite: 16] */
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.contact-container h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: #444;
-}
-
-/* 3. Form Elemanları Tasarımı (Çoklu Seçici Kullanımı) [cite: 17, 18, 19, 20, 22] */
-.contact-container label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-/* Gereksinim: input, select ve textarea'yı tek seferde seçme [cite: 17, 22] */
-.contact-container input[type="text"],
-.contact-container input[type="email"],
-.contact-container input[type="password"],
-.contact-container select,
-.contact-container textarea {
-    width: 100%; /* Gereksinim: Alanın tamamını kapla [cite: 18] */
-    padding: 12px; /* Gereksinim: Yazı yazıldığında ferah durması için [cite: 19] */
-    margin-bottom: 20px; /* Gereksinim: Elemanlar arası boşluk [cite: 20] */
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    box-sizing: border-box; /* Padding'in genişliği etkilememesi için */
-    font-size: 14px;
-}
-
-/* 4. Radyo ve Checkbox Özel Alanları (Görseldeki Gri Kutular) */
-.form-group {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    display: inline;
-    font-weight: normal;
-    margin-left: 8px;
-    cursor: pointer;
-}
-
-/* 5. Buton Tasarımları  */
-.button-row {
+.nav-links {
     display: flex;
-    gap: 15px;
+    list-style: none;
+    gap: 20px;
 }
 
-.btn-submit {
+/* 3. Hero (İki Kolon) - 30vh */
+.hero {
+    height: 30vh; /* [cite: 20, 52] */
+    display: flex; /* [cite: 22, 47] */
+    flex-direction: row; /* [cite: 23, 50] */
+    justify-content: space-between; /* [cite: 24, 48] */
+    align-items: stretch; /* [cite: 25, 49] */
+    padding: 20px 5%;
+    background-color: #f8f9fa;
+}
+
+.hero-image-placeholder {
     flex: 1;
-    background-color: #007bff; /* Görseldeki mavi buton  */
-    color: white;
-    border: none;
-    padding: 12px 0; /* Gereksinim: Alt-üst padding ile büyütme  */
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #ccc;
 }
 
-.btn-submit:hover {
-    background-color: #0056b3;
+/* 4. Kartlar Bölümü (Multiple Items) - 30vh */
+.cards-section {
+    height: 30vh; /* [cite: 27, 52] */
+    display: flex; /* [cite: 30, 47] */
+    flex-wrap: wrap; /* [cite: 28, 31] */
+    gap: 15px; /* [cite: 32] */
+    padding: 20px 5%;
+    overflow-y: auto; /* İçerik sığmazsa kaydırma çubuğu için */
 }
 
-.btn-reset {
-    flex: 1;
-    background-color: #dc3545; /* Görseldeki kırmızı buton */
-    color: white;
-    border: none;
-    padding: 12px 0;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-}
-
-.btn-reset:hover {
-    background-color: #a71d2a;
-}
-
-/* Alt Bilgi */
-footer {
+.card {
+    flex: 1 1 150px; /* Kartların esnemesi ve sığması için */
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
     text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    color: #777;
-    border-top: 1px solid #ddd;
+}
+
+/* 5. Flex Grow Uygulama - 20vh */
+.grow-section {
+    height: 20vh; /* [cite: 34, 52] */
+    display: flex; /* [cite: 35] */
+    align-items: stretch; /* [cite: 39] */
+    gap: 10px;
+    padding: 10px 5%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.box-1 { flex-grow: 1; background-color: #d1ecf1; } /* [cite: 36, 51] */
+.box-2 { flex-grow: 2; background-color: #d4edda; } /* [cite: 37, 51] */
+.box-3 { flex-grow: 1; background-color: #fff3cd; } /* [cite: 38, 51] */
+
+/* 6. Footer - 10vh */
+.footer {
+    height: 10vh; /* [cite: 41, 52] */
+    display: flex; /* [cite: 42] */
+    justify-content: center; /* [cite: 43] */
+    align-items: center; /* [cite: 44] */
+    background-color: #eee;
 }
