@@ -96,3 +96,253 @@
     align-items: center; /* [cite: 44] */
     background-color: #eee;
 }
+/* --- Lab-5: CSS Position Ödevi Kodları --- */
+
+.lab-body {
+    background-color: #f0f2f5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.lab-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.lab-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+/* 1. Relative Kapsayıcı (Duyuru Kartı) */
+.announcement-card {
+    position: relative; /* [cite: 10, 37] */
+    width: 500px;
+    height: 350px;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Animasyon [cite: 14, 41] */
+}
+
+.announcement-card:hover {
+    transform: scale(1.02);
+    cursor: pointer; /* Cursor Değişimi [cite: 13, 40] */
+}
+
+/* 2. Absolute Öğeler (Rozetler/Etiketler) */
+.badge {
+    position: absolute; /* [cite: 11, 38] */
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.badge-top-left {
+    top: 20px;
+    left: 20px;
+    background-color: #fff3cd;
+    z-index: 2; /* Z-index kullanımı [cite: 18, 42] */
+}
+
+.badge-top-right {
+    top: 20px;
+    right: 20px;
+    background-color: #d4edda;
+}
+
+.badge-bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8d7da;
+}
+
+/* 3. Z-index ve Üst Üste Binme */
+.location-box {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 3; /* Kartın üzerindeki metnin önünde [cite: 18, 42] */
+    transition: background-color 0.3s;
+}
+
+.location-box:hover {
+    background-color: #333;
+    color: white;
+    cursor: crosshair; /* Cursor Değişimi [cite: 13, 40] */
+}
+
+/* 4. Fixed Öğeler (Sabit Kalan Menü) */
+.fixed-support {
+    position: fixed; /* [cite: 12, 39] */
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    z-index: 100;
+    cursor: help; /* Cursor Değişimi [cite: 13, 40] */
+    animation: pulse 2s infinite; /* Keyframes Animasyonu [cite: 17, 41] */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    cursor: w-resize; /* Cursor Değişimi [cite: 13, 40] */
+}
+/* --- Lab-5: CSS Position Ödevi Kodları --- */
+
+.lab-body {
+    background-color: #f0f2f5;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.lab-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.lab-container {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+/* 1. Relative Kapsayıcı (Duyuru Kartı) */
+.announcement-card {
+    position: relative; /* [cite: 10, 37] */
+    width: 500px;
+    height: 350px;
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Animasyon [cite: 14, 41] */
+}
+
+.announcement-card:hover {
+    transform: scale(1.02);
+    cursor: pointer; /* Cursor Değişimi [cite: 13, 40] */
+}
+
+/* 2. Absolute Öğeler (Rozetler/Etiketler) */
+.badge {
+    position: absolute; /* [cite: 11, 38] */
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.badge-top-left {
+    top: 20px;
+    left: 20px;
+    background-color: #fff3cd;
+    z-index: 2; /* Z-index kullanımı [cite: 18, 42] */
+}
+
+.badge-top-right {
+    top: 20px;
+    right: 20px;
+    background-color: #d4edda;
+}
+
+.badge-bottom-right {
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8d7da;
+}
+
+/* 3. Z-index ve Üst Üste Binme */
+.location-box {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 3; /* Kartın üzerindeki metnin önünde [cite: 18, 42] */
+    transition: background-color 0.3s;
+}
+
+.location-box:hover {
+    background-color: #333;
+    color: white;
+    cursor: crosshair; /* Cursor Değişimi [cite: 13, 40] */
+}
+
+/* 4. Fixed Öğeler (Sabit Kalan Menü) */
+.fixed-support {
+    position: fixed; /* [cite: 12, 39] */
+    bottom: 30px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+    z-index: 100;
+    cursor: help; /* Cursor Değişimi [cite: 13, 40] */
+    animation: pulse 2s infinite; /* Keyframes Animasyonu [cite: 17, 41] */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+    cursor: w-resize; /* Cursor Değişimi [cite: 13, 40] */
+}
