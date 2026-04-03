@@ -26,7 +26,7 @@ body {
   text-decoration: none;
   font-size: 0.9rem;
   z-index: 1000;
-  cursor: pointer;
+  cursor: crosshair;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
