@@ -18,6 +18,27 @@
       color: #000;
     }
 
+    /* Sağ Üst Buton Stili */
+    .btn-don {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: bold;
+      border-radius: 4px;
+      font-family: Arial, sans-serif;
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    .btn-don:hover {
+      background-color: #555;
+    }
+
     .form-box {
       border: 1px solid #ccc;
       padding: 20px;
@@ -97,6 +118,8 @@
   </style>
 </head>
 <body>
+
+  <a href="index.html" class="btn-don">Ana Sayfaya Dön</a>
 
   <div class="form-box">
     <h2>Birim Dönüştürücü</h2>
