@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Öğrenci Not Hesaplama</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Öğrenci Not Hesaplama</h1>
+
+    <div class="form-group">
+      <label for="adSoyad">Ad Soyad</label>
+      <input type="text" id="adSoyad" placeholder="Adınızı ve soyadınızı girin" />
+    </div>
+
+    <div class="form-group">
+      <label for="vize">Vize Notu (0-100)</label>
+      <input type="text" id="vize" placeholder="Vize notunuzu girin" />
+    </div>
+
+    <div class="form-group">
+      <label for="final">Final Notu (0-100)</label>
+      <input type="text" id="final" placeholder="Final notunuzu girin" />
+    </div>
+
+    <button id="hesaplaBtn" onclick="hesapla()">Hesapla</button>
+
+    <div class="sonuc" id="sonucKutusu">
+      <p class="sonuc-ad" id="sonucAd"></p>
+      <p id="sonucOrtalama"></p>
+      <p id="sonucHarf"></p>
+      <p id="sonucDurum"></p>
+    </div>
+  </div>
+
+  <script src="hafta6_1.js"></script>
+</body>
+</html>
