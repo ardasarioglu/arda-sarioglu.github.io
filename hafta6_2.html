@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Birim Dönüştürücü</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      padding: 40px 60px;
+      color: #000;
+    }
+
+    .form-box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 100%;
+      max-width: 340px;
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .form-box h2 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .form-box label {
+      display: block;
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 4px;
+    }
+
+    .form-box input[type="text"] {
+      display: block;
+      width: 100%;
+      padding: 7px 10px;
+      font-size: 0.95rem;
+      border: 1px solid #ccc;
+      outline: none;
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #fff;
+      margin-bottom: 14px;
+    }
+
+    .form-box select {
+      display: block;
+      width: 100%;
+      padding: 7px 10px;
+      font-size: 0.95rem;
+      border: 1px solid #ccc;
+      outline: none;
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #fff;
+      margin-bottom: 16px;
+      appearance: auto;
+    }
+
+    .btn-hesapla {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #4a6cf7;
+      border: none;
+      font-size: 0.95rem;
+      color: #fff;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+      margin-bottom: 14px;
+    }
+
+    .btn-hesapla:hover {
+      background: #3a5ce6;
+    }
+
+    .sonuc-box {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: center;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-box">
+    <h2>Birim Dönüştürücü</h2>
+
+    <label>Değer Giriniz:</label>
+    <input type="text" id="deger" placeholder="" />
+
+    <label>Dönüşüm Tipi:</label>
+    <select id="donusumTipi">
+      <option value="metre_kilometre">Metre -&gt; Kilometre</option>
+      <option value="celsius_fahrenheit">Celsius -&gt; Fahrenheit</option>
+      <option value="kilogram_gram">Kilogram -&gt; Gram</option>
+    </select>
+
+    <button class="btn-hesapla" onclick="hesapla()">Hesapla</button>
+
+    <div class="sonuc-box" id="sonucKutusu">
+      Sonuç: —
+    </div>
+  </div>
+
+  <script>
+    function hesapla() {
+      const degerStr = document.getElementById("deger").value.trim();
+      const tip      = document.getElementById("donusumTipi").value;
+      const deger    = parseFloat(degerStr);
+
+      if (isNaN(deger)) {
+        alert("Lütfen geçerli bir sayı girin.");
+        return;
+      }
+
+      let sonuc;
+      let sonucStr;
+
+      switch (tip) {
+        case "metre_kilometre":
+          sonuc = deger / 1000;
+          sonucStr = sonuc.toLocaleString("tr-TR", { maximumFractionDigits: 6 });
+          break;
+        case "celsius_fahrenheit":
+          sonuc = (deger * 9/5) + 32;
+          sonucStr = sonuc.toLocaleString("tr-TR", { maximumFractionDigits: 2 });
+          break;
+        case "kilogram_gram":
+          sonuc = deger * 1000;
+          sonucStr = sonuc.toLocaleString("tr-TR", { maximumFractionDigits: 2 });
+          break;
+        default:
+          sonucStr = "?";
+      }
+
+      document.getElementById("sonucKutusu").textContent = "Sonuç: " + sonucStr;
+    }
+  </script>
+</body>
+</html>
