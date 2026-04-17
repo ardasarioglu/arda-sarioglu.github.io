@@ -96,3 +96,163 @@
     align-items: center; /* [cite: 44] */
     background-color: #eee;
 }
+/* index.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: #f0f4ff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.container {
+  background: #ffffff;
+  border: 2px solid #1a1a2e;
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 6px 6px 0px #1a1a2e;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 1.8rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #e0e0e0;
+  letter-spacing: -0.5px;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  border: 1.5px solid #c8c8d8;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  color: #1a1a2e;
+  background: #fafafa;
+}
+
+.form-group input:focus {
+  border-color: #4361ee;
+  box-shadow: 0 0 0 3px rgba(67,97,238,0.12);
+  background: #fff;
+}
+
+button#hesaplaBtn {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #4361ee;
+  color: #fff;
+  border: 2px solid #1a1a2e;
+  border-radius: 8px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  box-shadow: 3px 3px 0px #1a1a2e;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+button#hesaplaBtn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #1a1a2e;
+}
+
+button#hesaplaBtn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #1a1a2e;
+}
+
+/* Sonuç Kutusu */
+.sonuc {
+  display: none;
+  margin-top: 1.8rem;
+  padding: 1.2rem 1.4rem;
+  background: #f7f9ff;
+  border: 1.5px solid #c8cfe8;
+  border-radius: 10px;
+}
+
+.sonuc.goster {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.sonuc-ad {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 0.6rem;
+}
+
+.sonuc p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.25rem;
+  line-height: 1.5;
+}
+
+.sonuc p span {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+#sonucDurum span.gecti {
+  color: #2d9a4e;
+  font-weight: 700;
+}
+
+#sonucDurum span.kaldi {
+  color: #e63946;
+  font-weight: 700;
+}
+
+/* Hata mesajı */
+.hata {
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+  display: none;
+}
+
+.hata.goster {
+  display: block;
+}
