@@ -4,37 +4,153 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Öğrenci Not Hesaplama</title>
-  <link rel="stylesheet" href="index.css" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      padding: 40px 60px;
+      color: #000;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .form-box {
+      border: 1px solid #ccc;
+      padding: 0;
+      width: 100%;
+      max-width: 540px;
+    }
+
+    .form-box input[type="text"] {
+      display: block;
+      width: 100%;
+      padding: 8px 10px;
+      font-size: 0.95rem;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      outline: none;
+      font-family: Arial, sans-serif;
+      color: #333;
+      background: #fff;
+    }
+
+    .form-box input[type="text"]:last-of-type {
+      border-bottom: none;
+    }
+
+    .form-box input[type="text"]::placeholder {
+      color: #999;
+    }
+
+    .btn-hesapla {
+      display: block;
+      width: 100%;
+      max-width: 540px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-top: none;
+      font-size: 0.95rem;
+      color: #4a6cf7;
+      cursor: pointer;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-hesapla:hover {
+      background: #f5f5f5;
+    }
+
+    /* Sonuç kutusu */
+    .sonuc-box {
+      display: none;
+      margin-top: 20px;
+      border: 1px solid #ccc;
+      padding: 16px 14px;
+      max-width: 540px;
+      background: #fff;
+    }
+
+    .sonuc-box.goster {
+      display: block;
+    }
+
+    .sonuc-box .isim {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .sonuc-box p {
+      font-size: 0.92rem;
+      color: #333;
+      margin-bottom: 2px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Öğrenci Not Hesaplama</h1>
 
-    <div class="form-group">
-      <label for="adSoyad">Ad Soyad</label>
-      <input type="text" id="adSoyad" placeholder="Adınızı ve soyadınızı girin" />
-    </div>
+  <h1>Öğrenci Not Hesaplama</h1>
 
-    <div class="form-group">
-      <label for="vize">Vize Notu (0-100)</label>
-      <input type="text" id="vize" placeholder="Vize notunuzu girin" />
-    </div>
+  <div class="form-box">
+    <input type="text" id="adSoyad" placeholder="Ad Soyad" />
+    <input type="text" id="vize" placeholder="Vize Notu" />
+    <input type="text" id="final" placeholder="Final Notu" />
+  </div>
+  <button class="btn-hesapla" onclick="hesapla()">Hesapla</button>
 
-    <div class="form-group">
-      <label for="final">Final Notu (0-100)</label>
-      <input type="text" id="final" placeholder="Final notunuzu girin" />
-    </div>
-
-    <button id="hesaplaBtn" onclick="hesapla()">Hesapla</button>
-
-    <div class="sonuc" id="sonucKutusu">
-      <p class="sonuc-ad" id="sonucAd"></p>
-      <p id="sonucOrtalama"></p>
-      <p id="sonucHarf"></p>
-      <p id="sonucDurum"></p>
-    </div>
+  <div class="sonuc-box" id="sonucKutusu">
+    <p class="isim" id="sonucAd"></p>
+    <p id="sonucOrtalama"></p>
+    <p id="sonucHarf"></p>
+    <p id="sonucDurum"></p>
   </div>
 
-  <script src="hafta6_1.js"></script>
+  <script>
+    function harfNotuHesapla(ort) {
+      if (ort >= 90) return "AA";
+      if (ort >= 85) return "BA";
+      if (ort >= 80) return "BB";
+      if (ort >= 75) return "CB";
+      if (ort >= 70) return "CC";
+      if (ort >= 65) return "DC";
+      if (ort >= 60) return "DD";
+      if (ort >= 50) return "FD";
+      return "FF";
+    }
+
+    function hesapla() {
+      const adSoyad = document.getElementById("adSoyad").value.trim();
+      const vize    = parseFloat(document.getElementById("vize").value.trim());
+      const final_  = parseFloat(document.getElementById("final").value.trim());
+
+      if (!adSoyad) { alert("Ad Soyad boş bırakılamaz."); return; }
+      if (isNaN(vize)  || vize  < 0 || vize  > 100) { alert("Geçerli bir vize notu girin (0-100)."); return; }
+      if (isNaN(final_)|| final_< 0 || final_> 100) { alert("Geçerli bir final notu girin (0-100)."); return; }
+
+      const ort    = vize * 0.40 + final_ * 0.60;
+      const harf   = harfNotuHesapla(ort);
+      const durum  = ort >= 50 ? "Geçti" : "Kaldı";
+
+      document.getElementById("sonucAd").textContent       = adSoyad;
+      document.getElementById("sonucOrtalama").textContent = "Ortalama: " + ort.toFixed(2);
+      document.getElementById("sonucHarf").textContent     = "Harf Notu: " + harf;
+      document.getElementById("sonucDurum").textContent    = "Durum: " + durum;
+
+      document.getElementById("sonucKutusu").classList.add("goster");
+    }
+  </script>
 </body>
 </html>
