@@ -1,0 +1,58 @@
+/* Genel Sayfa Ayarları */
+body {
+    transition: background-color 0.4s ease, color 0.4s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Hero Bölümü Görselleştirmesi */
+.display-4 {
+    letter-spacing: -1px;
+}
+
+/* Kartların Hover (Üzerine Gelme) Efekti */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Tema Değişimi İçin Yardımcı Sınıflar */
+/* JavaScript toggle ettiğinde bu renkler devreye girecek */
+body.bg-dark {
+    background-color: #121212 !important;
+    color: #f8f9fa !important;
+}
+
+body.bg-dark .card {
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
+}
+
+body.bg-dark .text-secondary {
+    color: #adb5bd !important;
+}
+
+body.bg-dark .bg-light {
+    background-color: #1e1e1e !important;
+    color: white;
+}
+
+/* Form Elemanlarının Odaklanma Rengi */
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Sonuç Alanı Animasyonu */
+#sonucAlani {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
